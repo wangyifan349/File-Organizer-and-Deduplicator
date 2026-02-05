@@ -1,9 +1,11 @@
 [package]
-name = "file_organizer"
+name = "organizer"
 version = "0.1.0"
 edition = "2021"
+authors = ["Your Name <your@email.com>"]
+description = "File organizer: classify, move and deduplicate files by type."
 
 [dependencies]
 walkdir = "*"
 console = "*"
-clap = { version = "*", features = ["derive"] }
+sha2 = "*"
