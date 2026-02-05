@@ -9,3 +9,15 @@ description = "File organizer: classify, move and deduplicate files by type."
 walkdir = "*"
 console = "*"
 sha2 = "*"
+
+[profile.release]
+# 不生成调试信息（移除 DWARF/PDB），减小体积并减少可暴露的符号/行号
+debug = false
+# 优化等级，"z" 优先最小体积（"3" 为最高性能）
+opt-level = "z"
+# 启用链接时优化（Link Time Optimization），跨 crate 做更激进的内联与常量折叠
+lto = true
+# 将代码生成单元设为 1，以便编译器能做更全局的优化（提高 LTO 效果）
+codegen-units = 1
+# panic 时直接中止进程，不展开栈，移除 unwinding 相关代码和元数据（减小体积、降低调试信息）
+panic = "abort"
